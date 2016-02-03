@@ -1,0 +1,43 @@
+Centralized Workflow
+
+Simply ...`
+Clone from remote
+	git clone https://github.com/stackcanary/compiler.git
+	
+Make Changes
+	git add
+	git commit
+
+Check if somebody else has made any changes ---------
+																										|
+	git fetch																					|
+	git log -p HEAD..FETCH_HEAD												|
+
+
+Submit changes
+	git push
+
+
+Whoops ... Somebody already made a change? No problem.
+	
+	git pull --rebase  
+	
+----------------------------
+
+Experimental Features
+
+	git branch -b experimental
+	git checkout experimental
+[Make some changes]	
+	git checkout master
+	git merge experimental
+	
+
+----------------------------
+
+For help see
+	man gittutorial
+	man git
+	
+
+
