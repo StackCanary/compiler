@@ -1,6 +1,9 @@
 package logoCompiler.lexer;
 import java.util.*;
 
+import token.EOIToken;
+import token.Token;
+
 
 public final class Lexer {
   static int ch = ' ';
@@ -18,6 +21,9 @@ public final class Lexer {
 	    return new EOIToken();
     	}
     }
+    
+    /* This probably shouldn't return null */
+	return null;
   }
 
   

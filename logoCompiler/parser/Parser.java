@@ -1,5 +1,6 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
+import token.Token;
 
 public final class Parser {
   public static Token t;

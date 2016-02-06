@@ -1,5 +1,8 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
+import token.EOIToken;
+import token.PROCToken;
+
 import java.util.*;
 /*
  * prog:

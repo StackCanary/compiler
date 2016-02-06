@@ -1,4 +1,4 @@
-package logoCompiler.lexer;
+package token;
 public abstract class Token {
 	public int precedence() {
 		//set precedence of all non-operators to 0
