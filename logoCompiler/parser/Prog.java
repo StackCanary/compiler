@@ -17,7 +17,9 @@ public class Prog {
 	}
 	
   public static Prog parse() {
+		/*An ArrayList of Proc objects*/
 	 List<Proc> procs = new ArrayList<Proc>();
+		/*Procs can parse themselves*/
 	 procs.add(Proc.parse());
 
     while (Parser.t instanceof PROCToken) {

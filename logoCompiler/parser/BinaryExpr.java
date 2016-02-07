@@ -1,6 +1,6 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
-import token.OperatorToken;
+import operatortokens.OperatorToken;
 
 /*
  * binary-expr:

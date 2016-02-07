@@ -1,4 +1,6 @@
-package token;
+package operatortokens;
+
+import token.Token;
 
 public abstract class OperatorToken extends Token {
 	public abstract String psOpCode();

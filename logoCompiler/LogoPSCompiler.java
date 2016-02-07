@@ -6,12 +6,15 @@ import logoCompiler.parser.*;
 public class LogoPSCompiler {
   public static void main(String[] args) {
 
+		/*Set Parser.t to our initial Token*/
     Parser.t = Lexer.lex();
-    Prog prog = Prog.parse();
+		
+		/*This function will continue to retrieve tokens */
+//    Prog prog = Prog.parse();
 
     if (!Parser.error) {
       psPrologue();
-      prog.codegen();
+     // prog.codegen();
       psEpilogue();
     }
   }

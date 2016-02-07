@@ -1,5 +1,7 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
+import token.IdentToken;
+import token.LParenToken;
 
 
 /*
@@ -17,6 +19,9 @@ public final class Proc {
     this.stmts = stmts;
   }
 
+	/**
+	 * Need to add cases for saving the arg and stmnts
+	 */
   public static Proc parse() {
     String   name  = "";
     String   arg   = "";

@@ -1,5 +1,6 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
+import token.IdentToken;
 /*
  * primary-expr:
  *   num
