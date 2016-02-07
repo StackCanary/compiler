@@ -1,4 +1,4 @@
-package logoCompiler.parser;
+lpackage logoCompiler.parser;
 import  logoCompiler.lexer.*;
 import operatortokens.OperatorToken;
 
