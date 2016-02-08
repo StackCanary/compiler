@@ -1,6 +1,7 @@
 package logoCompiler.lexer;
 import java.util.*;
 
+import token.ComparisonToken;
 import token.EOIToken;
 import token.Token;
 import token.TokenGenerator;
@@ -11,53 +12,71 @@ public final class Lexer {
 	/* The scope of this variable means it is used in both 
 	 * lex() and getChar() 
 	 */
-  static int ch = ' ';
-  static TokenGenerator tGenerator = new TokenGenerator();
-  
-  public static Token lex() {
-	 TokenGenerator tGenerator = new TokenGenerator();
-	String currentString = "";
-    //skip the white space
-    while (ch == ' ' || ch == '\n' || ch == '\t') {
-    	ch = getChar();
-    	
-    	if (ch == -1) {
-    		return new EOIToken();
-    	}
-    	
-    	tGenerator.submitCharacterTest("" + (char) ch);
-    	if (tGenerator.hasNext()) {
-    		return tGenerator.getNextToken();
-    	}
-    	
-    	
-    	while (Tokenizer.matchesRegex("[A-z0-9]", "" + (char) ch)) {
-    		currentString += (char) ch;
-    		ch = getChar();
-    	}
-    	
-    	tGenerator.submitTest(currentString);
+
+	static int ch = getChar();
+	static int peek = getChar();
+	static TokenGenerator tGenerator = new TokenGenerator();
+
+	public static Token lex() {
+		TokenGenerator tGenerator = new TokenGenerator();
+		String currentString = "";
+		//Consume the white space
+		while (ch == ' ' || ch == '\n' || ch == '\t') {
+			getCharacter();
+		}
+
+		if (ch == -1) {
+			return new EOIToken();
+		}
+		
+		tGenerator.submitOperatorTest("" + (char) ch); 
+		if (tGenerator.hasNext()) {
+			Token currentToken = tGenerator.getNextToken();
+			if (peek == '=') {
+				tGenerator.submitOperatorTest("" + (char) ch + (char) peek); 
+				if (tGenerator.hasNext()) {
+					getCharacter();
+					getCharacter();
+					return tGenerator.getNextToken();
+				}
+			}
+			getCharacter();
+			return currentToken;
+		}
+
+
+		while (Tokenizer.matchesRegex("[A-z0-9]", "" + (char) ch)) {
+			currentString += (char) ch;
+			getCharacter();
+		}
+
+		tGenerator.submitTest(currentString);
 		if (tGenerator.hasNext()) {
 			return tGenerator.getNextToken();
 		}
-    	
-    }
-    
-    
-    return null;
-    
-    
-    
-  }
+		
+		getCharacter();
 
-  
-  //this reads chars from stdin. You can read in files any way you want, using FileReader etc.
-  static int getChar() {
-    try {
-      ch = System.in.read();
-    } catch (Exception e) {
-      System.out.println(e); System.exit(1);
-    }
-    return ch;
-  }
+		return null;
+
+
+
+	}
+
+
+	//this reads chars from stdin. You can read in files any way you want, using FileReader etc.
+	static int getChar() {
+		int chr = 0;
+		try {
+			chr = System.in.read();
+		} catch (Exception e) {
+			System.out.println(e); System.exit(1);
+		}
+		return chr;
+	}
+
+	static void getCharacter() {
+		ch = peek;
+		peek = getChar();
+	}
 }
