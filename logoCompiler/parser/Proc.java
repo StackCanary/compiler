@@ -2,6 +2,7 @@ package logoCompiler.parser;
 import  logoCompiler.lexer.*;
 import token.IdentToken;
 import token.LParenToken;
+import token.ParenthesisToken;
 
 
 /*
@@ -29,16 +30,17 @@ public final class Proc {
     String   name  = "";
     String   arg   = "";
 
-    Parser.t = Lexer.lex();
+    OldParser.t = Lexer.lex();
 
-    if (Parser.t instanceof IdentToken) {
-      name = ((IdentToken) Parser.t).getAttr();
-      Parser.t = Lexer.lex();
+    if (OldParser.t instanceof IdentToken) {
+      name = ((IdentToken) OldParser.t).getAttr();
+      OldParser.t = Lexer.lex();
     } else {
       //error?
     }
-    if (Parser.t instanceof LParenToken) {
-      Parser.t = Lexer.lex();
+    if (OldParser.t instanceof ParenthesisToken) {
+    	
+      OldParser.t = Lexer.lex();
     } else {
       //error?
     }

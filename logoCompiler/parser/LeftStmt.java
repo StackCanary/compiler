@@ -14,7 +14,7 @@ public final class LeftStmt extends Stmt {
 
   public static Stmt parse() {
 
-    Parser.t = Lexer.lex();
+    OldParser.t = Lexer.lex();
     Expr expr = Expr.parse();
     return new LeftStmt(expr);
   }

@@ -8,9 +8,9 @@ import token.IdentToken;
  */
 public abstract class PrimaryExpr extends Expr {
   public static Expr parse() {
-    if (Parser.t instanceof NumToken) {
+    if (OldParser.t instanceof NumToken) {
       return NumExpr.parse();
-    } else if (Parser.t instanceof IdentToken) {
+    } else if (OldParser.t instanceof IdentToken) {
       return IdentExpr.parse();
     } else {
       //error?

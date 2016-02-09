@@ -22,10 +22,10 @@ public abstract class Expr {
 		  Expr  right;
 		  left = PrimaryExpr.parse();
 		  
-		  for (i = Parser.t.precedence(); i >= k; i--) {
-		    while (Parser.t.precedence() == i) {
-		      oper = (OperatorToken) Parser.t; 
-		      Parser.t = Lexer.lex();
+		  for (i = OldParser.t.precedence(); i >= k; i--) {
+		    while (OldParser.t.precedence() == i) {
+		      oper = (OperatorToken) OldParser.t; 
+		      OldParser.t = Lexer.lex();
 		      right = fraserHanson(i+1);
 		      left  = new BinaryExpr(left, oper, right); 
 		    }
