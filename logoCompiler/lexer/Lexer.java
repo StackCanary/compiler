@@ -10,7 +10,8 @@ import token.Tokenizer;
 
 public final class Lexer {
 	/* The scope of this variable means it is used in both 
-	 * lex() and getChar() 
+	 * lex() and getChar(), this was a subtle oversight 
+	 * because in the original template. 
 	 */
 
 	static int ch = getChar();
@@ -24,7 +25,10 @@ public final class Lexer {
 		while (ch == ' ' || ch == '\n' || ch == '\t') {
 			getCharacter();
 		}
-
+		
+		/**
+		 * Return end of input Token
+		 */
 		if (ch == -1) {
 			return new EOIToken();
 		}
@@ -58,8 +62,6 @@ public final class Lexer {
 		getCharacter();
 
 		return null;
-
-
 
 	}
 

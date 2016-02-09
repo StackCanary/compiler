@@ -21,6 +21,9 @@ public final class Proc {
 
 	/**
 	 * Need to add cases for saving the arg and stmnts
+	 * 
+	 * This function reads the tokens to capture a PROC
+	 * 
 	 */
   public static Proc parse() {
     String   name  = "";

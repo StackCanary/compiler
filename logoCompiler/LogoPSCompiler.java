@@ -10,7 +10,7 @@ public class LogoPSCompiler {
     Parser.t = Lexer.lex();
 		
 		/*This function will continue to retrieve tokens */
-//    Prog prog = Prog.parse();
+    Prog prog = Prog.parse();
 
     if (!Parser.error) {
       psPrologue();
