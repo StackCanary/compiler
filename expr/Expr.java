@@ -15,19 +15,28 @@ import token.NumberToken;
 public abstract class Expr {
 
 		/*We need to differentiate between binary operations and primary expressions*/
+		/* 
+		 * primary-expr
+		 * binary-expr ; 
+		 */
 	  public static Expr parse() {
 		  	Parser.t = Lexer.lex();
+		  	/*We're going to return PrimaryExpr */
 		  	if (Parser.t instanceof IdentToken) {
-		  		
+		  		return NumExpr.parse();
 		  		/*Maybe we need to return a new expr which will be stored in an Arraylist in statements*/
 		  	}
 		  	
+		  	/*We're going to return BinaryExpr here*/
 		  	if (Parser.t instanceof NumberToken || Parser.t instanceof DigitToken) {
-		  		
+		  		return fraserHanson(1);
+		  	} else {
+		  		// Error
 		  	}
 		  
+		  	return null;
 		  
-		    return fraserHanson(1);
+		    
 	  }
 
 	  //Binary Expressions precedence handler from Fraser and Hanson C Compiler book
@@ -49,5 +58,8 @@ public abstract class Expr {
 		  return left;
 	  }
 
-  public abstract void codegen();
+	 
+  public void codegen() {
+	  
+  }
 }

@@ -27,10 +27,14 @@ public final class Proc {
 	 * This function reads the tokens to capture a PROC
 	 * 
 	 */
+  
+  	/*
+  	 * "PROC" ident '(' ident ')' stmts ; 
+  	 */
   public static Proc parse() {
     String   name  = "";
     String   arg   = "";
-
+    
     Parser.t = Lexer.lex();
 
     if (Parser.t instanceof IdentToken) {
@@ -61,9 +65,10 @@ public final class Proc {
     }
     
     
+    
     //...
     
-    return new Proc(name, arg, stmts);
+    return new Proc(name, arg, Stmts.parse());
   }
 
   public void codegen() {
