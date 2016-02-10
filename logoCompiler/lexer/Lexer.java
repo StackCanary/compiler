@@ -1,6 +1,7 @@
 package logoCompiler.lexer;
 import java.util.*;
 
+import logoCompiler.parser.Parser;
 import token.ComparisonToken;
 import token.EOIToken;
 import token.Token;
@@ -17,8 +18,14 @@ public final class Lexer {
 	static int ch = getChar();
 	static int peek = getChar();
 	static TokenGenerator tGenerator = new TokenGenerator();
-
+	
 	public static Token lex() {
+		Token token = getToken();
+		Parser.tokens.push(token);
+		return getToken();
+	}
+	
+	public static Token getToken() {
 		TokenGenerator tGenerator = new TokenGenerator();
 		String currentString = "";
 		//Consume the white space
@@ -64,6 +71,7 @@ public final class Lexer {
 		return null;
 
 	}
+	
 
 
 	//this reads chars from stdin. You can read in files any way you want, using FileReader etc.

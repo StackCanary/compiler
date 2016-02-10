@@ -22,11 +22,11 @@ public class Prog {
 		/*Procs can parse themselves*/
 	 procs.add(Proc.parse());
 
-    while (OldParser.t instanceof PROCToken) {
+    while (Parser.t instanceof PROCToken) {
    	    procs.add(Proc.parse());
     }
-    if (OldParser.t instanceof EOIToken) {
-      OldParser.t = Lexer.lex();
+    if (Parser.t instanceof EOIToken) {
+      Parser.t = Lexer.lex();
     } else {
       //error?
     } 

@@ -1,5 +1,6 @@
-package logoCompiler.parser;
+package expr;
 import  logoCompiler.lexer.*;
+import logoCompiler.parser.Parser;
 import token.IdentToken;
 /*
  * primary-expr:
@@ -8,9 +9,9 @@ import token.IdentToken;
  */
 public abstract class PrimaryExpr extends Expr {
   public static Expr parse() {
-    if (OldParser.t instanceof NumToken) {
+    if (Parser.t instanceof NumToken) {
       return NumExpr.parse();
-    } else if (OldParser.t instanceof IdentToken) {
+    } else if (Parser.t instanceof IdentToken) {
       return IdentExpr.parse();
     } else {
       //error?

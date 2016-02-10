@@ -45,6 +45,10 @@ public abstract class Token {
 		return null;
 	}
 	
+	public Symbol_t getSymbol() {
+		return symbol;
+	}
+	
 	
 	private void setParen(String attr) {
 		switch (attr) {
@@ -87,8 +91,6 @@ public abstract class Token {
 		case "/":
 			symbol = Symbol_t.Divide;
 			break;
-		
-		
 
 		/* No default case, perhaps I should have one */
 		}

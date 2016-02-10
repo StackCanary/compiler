@@ -1,5 +1,6 @@
 
 package logoCompiler.parser;
+import expr.Expr;
 import  logoCompiler.lexer.*;
 
 /*
@@ -14,7 +15,7 @@ public final class LeftStmt extends Stmt {
 
   public static Stmt parse() {
 
-    OldParser.t = Lexer.lex();
+    Parser.t = Lexer.lex();
     Expr expr = Expr.parse();
     return new LeftStmt(expr);
   }

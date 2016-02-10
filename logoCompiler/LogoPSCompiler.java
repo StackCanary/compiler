@@ -7,12 +7,12 @@ public class LogoPSCompiler {
   public static void main(String[] args) {
 
 		/*Set Parser.t to our initial Token*/
-    OldParser.t = Lexer.lex();
+    Parser.t = Lexer.lex();
 		
 		/*This function will continue to retrieve tokens */
     Prog prog = Prog.parse();
 
-    if (!OldParser.error) {
+    if (!Parser.error) {
       psPrologue();
      // prog.codegen();
       psEpilogue();
