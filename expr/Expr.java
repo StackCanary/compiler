@@ -6,6 +6,7 @@ import operatortokens.OperatorToken;
 import token.DigitToken;
 import token.IdentToken;
 import token.NumberToken;
+import token.Token;
 
 /*
  * expr:
@@ -20,23 +21,7 @@ public abstract class Expr {
 		 * binary-expr ; 
 		 */
 	  public static Expr parse() {
-		  	Parser.t = Lexer.lex();
-		  	/*We're going to return PrimaryExpr */
-		  	if (Parser.t instanceof IdentToken) {
-		  		return NumExpr.parse();
-		  		/*Maybe we need to return a new expr which will be stored in an Arraylist in statements*/
-		  	}
-		  	
-		  	/*We're going to return BinaryExpr here*/
-		  	if (Parser.t instanceof NumberToken || Parser.t instanceof DigitToken) {
-		  		return fraserHanson(1);
-		  	} else {
-		  		// Error
-		  	}
-		  
-		  	return null;
-		  
-		    
+		  	return fraserHanson(1);
 	  }
 
 	  //Binary Expressions precedence handler from Fraser and Hanson C Compiler book
@@ -59,7 +44,5 @@ public abstract class Expr {
 	  }
 
 	 
-  public void codegen() {
-	  
-  }
+  public abstract void codegen();
 }
