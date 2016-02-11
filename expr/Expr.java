@@ -15,7 +15,8 @@ import token.Token;
  */
 public abstract class Expr {
 
-		/*We need to differentiate between binary operations and primary expressions*/
+		/*We need to differentiate between binary operations and primary expressions
+		 * this is automagically done the in fraserHanson function */
 		/* 
 		 * primary-expr
 		 * binary-expr ; 
