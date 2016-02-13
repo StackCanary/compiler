@@ -39,22 +39,21 @@ public final class Proc {
     
     Parser.t = Lexer.lex();
 
-    if (ParsingHelper.expected(IdentToken.class)) {
+    if (ParsingHelper.expected(IdentToken.class, true)) {
     	name = ((IdentToken) Parser.t).getAttr();
     	Parser.t = Lexer.lex();
     } 
     
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LParen)) {
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LParen, true)) {
       Parser.t = Lexer.lex();
     } 
     
-    if (ParsingHelper.expected(IdentToken.class)) {
+    if (ParsingHelper.expected(IdentToken.class, true)) {
         arg = ((IdentToken) Parser.t).getAttr();
         Parser.t = Lexer.lex();
     } 
     
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RParen)) {
-    	
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RParen, true)) {
         Parser.t = Lexer.lex();
     } 
     
