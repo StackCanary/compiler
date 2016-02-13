@@ -21,8 +21,9 @@ public final class Lexer {
 	
 	public static Token lex() {
 		Token token = getToken();
+		System.out.println("Returned : " + token.getAttr());
 		Parser.tokens.push(token);
-		return getToken();
+		return token;
 	}
 	
 	public static Token getToken() {
@@ -64,6 +65,7 @@ public final class Lexer {
 	
 		tGenerator.submitTest(currentString);
 		if (tGenerator.hasNext()) {
+			System.out.println("This is executed");
 			return tGenerator.getNextToken();
 		}
 		

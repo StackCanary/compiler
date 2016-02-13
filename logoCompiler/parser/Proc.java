@@ -1,10 +1,11 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
 import stmts.Stmts;
+import exceptions.ParsingException;
+import helper.ParsingHelper;
 import token.IdentToken;
 import token.ParenthesisToken;
 import token.Token.Symbol_t;
-
 
 /*
  * proc:
@@ -25,44 +26,40 @@ public final class Proc {
 	 * Need to add cases for saving the arg and stmnts
 	 * 
 	 * This function reads the tokens to capture a PROC
+	 * @throws ParsingException 
 	 * 
 	 */
   
   	/*
   	 * "PROC" ident '(' ident ')' stmts ; 
   	 */
-  public static Proc parse() {
+  public static Proc parse() throws ParsingException {
     String   name  = "";
     String   arg   = "";
     
     Parser.t = Lexer.lex();
 
-    if (Parser.t instanceof IdentToken) {
-      name = ((IdentToken) Parser.t).getAttr();
-      Parser.t = Lexer.lex();
-    } else {
-      //error?
-    }
-    if (Parser.t instanceof ParenthesisToken && Parser.t.getSymbol() == Symbol_t.LBrace) {
-    	
-      Parser.t = Lexer.lex();
-    } else {
-      //error?
-    }
+    if (ParsingHelper.expected(IdentToken.class)) {
+    	name = ((IdentToken) Parser.t).getAttr();
+    	Parser.t = Lexer.lex();
+    } 
     
-    if (Parser.t instanceof IdentToken) {
+    System.out.println("We get past ident");
+    
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LBrace)) {
+      Parser.t = Lexer.lex();
+    } 
+    
+    if (ParsingHelper.expected(IdentToken.class)) {
         arg = ((IdentToken) Parser.t).getAttr();
         Parser.t = Lexer.lex();
-     } else {
-        //error?
-     }
+    } 
     
-    if (Parser.t instanceof ParenthesisToken && Parser.t.getSymbol() == Symbol_t.RBrace) {
+    System.out.println("I fail here");
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RBrace)) {
     	
         Parser.t = Lexer.lex();
-    } else {
-        //error?
-    }
+    } 
     
     
     

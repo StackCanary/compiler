@@ -1,5 +1,6 @@
 package logoCompiler.parser;
 import  logoCompiler.lexer.*;
+import sun.security.pkcs.ParsingException;
 import token.EOIToken;
 import token.PROCToken;
 
@@ -16,7 +17,7 @@ public class Prog {
 		this.procs = procs;
 	}
 	
-  public static Prog parse() {
+  public static Prog parse() throws ParsingException {
 		/*An ArrayList of Proc objects*/
 	 List<Proc> procs = new ArrayList<Proc>();
 		/*Procs can parse themselves*/
@@ -25,10 +26,11 @@ public class Prog {
     while (Parser.t instanceof PROCToken) {
    	    procs.add(Proc.parse());
     }
+    
     if (Parser.t instanceof EOIToken) {
       Parser.t = Lexer.lex();
     } else {
-      //error?
+    	
     } 
     return new Prog(procs);
   }
