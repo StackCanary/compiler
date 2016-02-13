@@ -13,6 +13,9 @@ import token.Token;
  *   primary-expr 
  *   binary-expr 
  */
+/*
+ * The caller calls lexer.lex()
+ */
 public abstract class Expr {
 
 		/*We need to differentiate between binary operations and primary expressions
@@ -22,6 +25,7 @@ public abstract class Expr {
 		 * binary-expr ; 
 		 */
 	  public static Expr parse() {
+		  	Parser.t = Lexer.lex();
 		  	return fraserHanson(1);
 	  }
 
