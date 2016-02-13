@@ -40,7 +40,7 @@ public abstract class Token {
 	 * Override this method for all tokens with attributes
 	 */
 	public String getAttr() {
-		return null;
+		return this.attr;
 	}
 	
 	public Symbol_t getSymbol() {
