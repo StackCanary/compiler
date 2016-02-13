@@ -44,9 +44,7 @@ public final class Proc {
     	Parser.t = Lexer.lex();
     } 
     
-    System.out.println("We get past ident");
-    
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LBrace)) {
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LParen)) {
       Parser.t = Lexer.lex();
     } 
     
@@ -55,8 +53,7 @@ public final class Proc {
         Parser.t = Lexer.lex();
     } 
     
-    System.out.println("I fail here");
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RBrace)) {
+    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RParen)) {
     	
         Parser.t = Lexer.lex();
     } 
