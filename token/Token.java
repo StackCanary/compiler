@@ -26,8 +26,6 @@ public abstract class Token {
 	public Token(String attr) {
 		this.attr = attr;
 		setParen(attr);
-		System.out.print(this + " : ");
-		System.out.println(this.attr);
 	}
 	
 	public int precedence() {
