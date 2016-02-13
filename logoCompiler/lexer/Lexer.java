@@ -65,7 +65,6 @@ public final class Lexer {
 	
 		tGenerator.submitTest(currentString);
 		if (tGenerator.hasNext()) {
-			System.out.println("This is executed");
 			return tGenerator.getNextToken();
 		}
 		
