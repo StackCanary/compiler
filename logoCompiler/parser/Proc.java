@@ -71,6 +71,7 @@ public final class Proc {
     return new Proc(name, arg, Stmts.parse());
   }
 
+  /*We don't seem to have any code to deal with the arguments*/
   public void codegen() {
     System.out.print("/");
     System.out.print(name);
