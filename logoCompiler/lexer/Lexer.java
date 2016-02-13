@@ -21,6 +21,7 @@ public final class Lexer {
 	
 	public static Token lex() {
 		Token token = getToken();
+		System.out.println("Returning token " + " : "+ token.getAttr() + " : " + token);
 		Parser.tokens.push(token);
 		return getToken();
 	}
@@ -37,7 +38,7 @@ public final class Lexer {
 		 * Return end of input Token
 		 */
 		if (ch == -1) {
-			return new EOIToken();
+			return new EOIToken("" + (char) ch);
 		}
 		
 		tGenerator.submitOperatorTest("" + (char) ch); 
@@ -60,7 +61,8 @@ public final class Lexer {
 			currentString += (char) ch;
 			getCharacter();
 		}
-
+		
+	
 		tGenerator.submitTest(currentString);
 		if (tGenerator.hasNext()) {
 			return tGenerator.getNextToken();
