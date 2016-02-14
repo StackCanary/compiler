@@ -1,0 +1,14 @@
+/BinaryExpr.class
+/Expr.class
+/LeftStmt.class
+/Parser.class
+/PrimaryExpr.class
+/Proc.class
+/Prog.class
+/IdentToken.class
+/Stmt.class
+/OldParser.class
+/RightStmt.class
+/PrimaryStmnt.class
+/Stmts.class
+/ParsingHelper.class
