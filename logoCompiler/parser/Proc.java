@@ -71,7 +71,7 @@ public final class Proc {
     System.out.print(name);
     System.out.println(" {");
     if (!arg.equals("VOID")) {
-    	System.out.println("/" + arg + " exch def");
+    	System.out.println("/Arg exch def");
     }
     stmts.codegen();
     System.out.println("} def");

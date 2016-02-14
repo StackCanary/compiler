@@ -41,6 +41,10 @@ public abstract class Token {
 		return this.attr;
 	}
 	
+	public void setAttr(String attr) {
+		this.attr = attr;
+	}
+	
 	public Symbol_t getSymbol() {
 		return symbol;
 	}
