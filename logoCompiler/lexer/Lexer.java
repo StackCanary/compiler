@@ -22,6 +22,9 @@ public final class Lexer {
 	
 	public static Token lex() {
 		Token token = getToken();
+		if (token == null) {
+			return lex();
+		}
 		System.out.println("Returned : " + token.getAttr());
 		Parser.tokens.push(token);
 		return token;
