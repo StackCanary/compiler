@@ -51,8 +51,10 @@ public class FunctionCallStmt extends Stmt {
 	@Override
 	public void codegen() {
 		// TODO Auto-generated method stub
+		System.out.println("Arg");
 		expr.codegen();
 		System.out.println(name);
+		System.out.println("/Arg exch def");
 	}
 
 
