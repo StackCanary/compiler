@@ -60,12 +60,12 @@ public class LogoPSCompiler {
 		System.out.println("} def");
 
 		// This line is here for debugging purposes
-		System.out.println("[ OUR CODE SHOULD APPEAR BELOW HERE]");
+		//System.out.println("[ OUR CODE SHOULD APPEAR BELOW HERE]");
 	}
 
 	public static void psEpilogue() {
 		// This line is here for debugging purposes
-		System.out.println("[OUR CODE SHOULD APPEAR ABOVE HERE]");  
+		//System.out.println("[OUR CODE SHOULD APPEAR ABOVE HERE]");  
 
 
 		/* epilogue ... */

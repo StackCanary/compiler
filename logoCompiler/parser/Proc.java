@@ -70,6 +70,9 @@ public final class Proc {
     System.out.print("/");
     System.out.print(name);
     System.out.println(" {");
+    if (!arg.equals("VOID")) {
+    	System.out.println("/" + arg + " exch def");
+    }
     stmts.codegen();
     System.out.println("} def");
   }

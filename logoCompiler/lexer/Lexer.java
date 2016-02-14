@@ -25,7 +25,7 @@ public final class Lexer {
 		if (token == null) {
 			return lex();
 		}
-		System.out.println("Returned : " + token.getAttr());
+		//System.out.println("Returning " + token.getAttr());
 		Parser.tokens.push(token);
 		return token;
 	}
