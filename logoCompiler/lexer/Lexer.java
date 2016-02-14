@@ -1,6 +1,7 @@
 package logoCompiler.lexer;
 import java.util.*;
 
+import filereading.FileReader;
 import logoCompiler.parser.Parser;
 import token.ComparisonToken;
 import token.EOIToken;
@@ -78,13 +79,7 @@ public final class Lexer {
 
 	//this reads chars from stdin. You can read in files any way you want, using FileReader etc.
 	static int getChar() {
-		int chr = 0;
-		try {
-			chr = System.in.read();
-		} catch (Exception e) {
-			System.out.println(e); System.exit(1);
-		}
-		return chr;
+		return FileReader.getChar();
 	}
 
 	static void getCharacter() {

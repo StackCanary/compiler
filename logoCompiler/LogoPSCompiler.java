@@ -1,12 +1,16 @@
 package logoCompiler;
 
+import filereading.FileReader;
 import logoCompiler.lexer.*;
 import logoCompiler.parser.*;
 import sun.security.pkcs.ParsingException;
 
 public class LogoPSCompiler {
   public static void main(String[] args) throws ParsingException {
-
+	
+	/*Get file descriptors*/
+	FileReader.read();
+	
 		/*Set Parser.t to our initial Token*/
     Parser.t = Lexer.lex();
 		
