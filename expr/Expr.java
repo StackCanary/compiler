@@ -25,7 +25,6 @@ public abstract class Expr {
 		 * binary-expr ; 
 		 */
 	  public static Expr parse() {
-		  	Parser.t = Lexer.lex();
 		  	return fraserHanson(1);
 	  }
 
@@ -36,6 +35,9 @@ public abstract class Expr {
 		  OperatorToken oper;
 		  Expr  right;
 		  left = PrimaryExpr.parse();
+		  
+		  // I just added this line
+		  Parser.t = Lexer.lex();
 		  
 		  for (i = Parser.t.precedence(); i >= k; i--) {
 		    while (Parser.t.precedence() == i) {

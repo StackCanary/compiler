@@ -11,6 +11,8 @@ import token.NumberToken;
  */
 public abstract class PrimaryExpr extends Expr {
   public static Expr parse() {
+	  
+	  
     if (ParsingHelper.expected(NumberToken.class, false)) {
       return NumExpr.parse();
     } else if (ParsingHelper.expected(IdentToken.class, true)) {

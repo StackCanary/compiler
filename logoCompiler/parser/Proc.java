@@ -27,13 +27,14 @@ public final class Proc {
 	 * 
 	 * This function reads the tokens to capture a PROC
 	 * @throws ParsingException 
+	 * @throws sun.security.pkcs.ParsingException 
 	 * 
 	 */
   
   	/*
   	 * "PROC" ident '(' ident ')' stmts ; 
   	 */
-  public static Proc parse() throws ParsingException {
+  public static Proc parse() throws ParsingException, sun.security.pkcs.ParsingException {
     String   name  = "";
     String   arg   = "";
     
