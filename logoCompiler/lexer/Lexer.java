@@ -30,7 +30,7 @@ public final class Lexer {
 		TokenGenerator tGenerator = new TokenGenerator();
 		String currentString = "";
 		//Consume the white space
-		while (ch == ' ' || ch == '\n' || ch == '\t') {
+		while (ch == ' ' || ch == '\n' || ch == '\t' || ch == '\r') {
 			getCharacter();
 		}
 		
@@ -88,7 +88,13 @@ public final class Lexer {
 	}
 
 	static void getCharacter() {
+		if (peek == -1) {
+			ch = -1;
+			return;
+		}
+		
 		ch = peek;
 		peek = getChar();
+		
 	}
 }
