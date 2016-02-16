@@ -3,6 +3,7 @@ package stmts;
 import exceptions.ParsingException;
 import expr.Expr;
 import helper.ParsingHelper;
+import logoCompiler.Output;
 import logoCompiler.lexer.Lexer;
 import logoCompiler.parser.Parser;
 import token.KeywordToken;
@@ -62,11 +63,11 @@ public class ConditionalStmt extends Stmt {
 	@Override
 	public void codegen() {
 		expr.codegen();
-		System.out.println("{");
+		Output.writeToFile("{");
 		thenStmts.codegen();
-		System.out.println("} {");
+		Output.writeToFile("} {");
 		elseStmts.codegen();
-		System.out.println("} ifelse");
+		Output.writeToFile("} ifelse");
 	}
 
 }

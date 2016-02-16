@@ -1,4 +1,5 @@
 package logoCompiler.parser;
+import logoCompiler.Output;
 import  logoCompiler.lexer.*;
 import stmts.Stmts;
 import exceptions.ParsingException;
@@ -67,13 +68,12 @@ public final class Proc {
 
   /*We don't seem to have any code to deal with the arguments*/
   public void codegen() {
-    System.out.print("/");
-    System.out.print(name);
-    System.out.println(" {");
+    Output.writeToFile("/" + name + " {");
+
     if (!arg.equals("VOID")) {
-    	System.out.println("/Arg exch def");
+      Output.writeToFile("/Arg exch def");
     }
     stmts.codegen();
-    System.out.println("} def");
+      Output.writeToFile("} def");
   }
 }

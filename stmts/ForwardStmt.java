@@ -1,6 +1,7 @@
 package stmts;
 
 import expr.Expr;
+import logoCompiler.Output;
 import logoCompiler.lexer.Lexer;
 import logoCompiler.parser.Parser;
 
@@ -21,6 +22,6 @@ public class ForwardStmt extends Stmt {
 	@Override
 	public void codegen() {
 		expr.codegen();
-		System.out.println("Forward");
+		Output.writeToFile("Forward");
 	}
 }

@@ -1,5 +1,6 @@
 package expr;
 
+import logoCompiler.Output;
 import logoCompiler.parser.Parser;
 
 public class IdentExpr extends PrimaryExpr {
@@ -20,7 +21,7 @@ public class IdentExpr extends PrimaryExpr {
 	
 	@Override
 	public void codegen() {
-		System.out.println("Arg");
+		Output.writeToFile("Arg");
 	}
 	
 	

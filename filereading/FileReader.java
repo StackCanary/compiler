@@ -1,5 +1,7 @@
 package filereading;
 
+import logoCompiler.Output;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,8 +28,8 @@ public class FileReader {
 	/*
 	 * http://stackoverflow.com/questions/811851/
 	 */
-	public static Reader read() {
-		File file = new File("LogoPrograms/dragon_backup.t");
+	public static Reader read(String input){
+		File file = new File(input);
 		InputStream in;
 		try {
 			in = new FileInputStream(file);
@@ -37,7 +39,9 @@ public class FileReader {
 			return buffer;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("File not found");
+			Output.writeToConsole("Error 404: input file not found, since nothing can be done" +
+					" without a source file: compiler terminating.");
+			System.exit(0);
 		}
 		
 		return null;
