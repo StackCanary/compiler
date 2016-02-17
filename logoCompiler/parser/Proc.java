@@ -1,4 +1,5 @@
 package logoCompiler.parser;
+
 import logoCompiler.Output;
 import  logoCompiler.lexer.*;
 import stmts.Stmts;
@@ -12,6 +13,10 @@ import token.Token.Symbol_t;
  * proc:
  *   "PROC" ident '(' ident ')' stmts 
  */
+
+/**
+ *
+ */
 public final class Proc {
   String name;
   String arg;
@@ -24,56 +29,57 @@ public final class Proc {
   }
 
 	/**
-	 * Need to add cases for saving the arg and stmnts
-	 * 
 	 * This function reads the tokens to capture a PROC
-	 * @throws ParsingException 
-	 * @throws sun.security.pkcs.ParsingException 
-	 * 
+	 * @throws ParsingException
+	 * @throws sun.security.pkcs.ParsingException
 	 */
   
   	/*
+  	 * follows this syntax
   	 * "PROC" ident '(' ident ')' stmts ; 
   	 */
+
+    /**
+     * Returns a Proc object if it successfully managed to parse itself.
+     * @return The parsed Proc object
+     * @throws ParsingException
+     * @throws sun.security.pkcs.ParsingException
+     */
   public static Proc parse() throws ParsingException, sun.security.pkcs.ParsingException {
-    String   name  = "";
-    String   arg   = "";
-    
-    Parser.t = Lexer.lex();
+      String name = "";
+      String arg = "";
 
-    if (ParsingHelper.expected(IdentToken.class, true)) {
-    	name = ((IdentToken) Parser.t).getAttr();
-    	Parser.t = Lexer.lex();
-    } 
-    
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LParen, true)) {
       Parser.t = Lexer.lex();
-    } 
-    
-    if (ParsingHelper.expected(IdentToken.class, true)) {
-        arg = ((IdentToken) Parser.t).getAttr();
-        Parser.t = Lexer.lex();
-    } 
-    
-    if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RParen, true)) {
-        Parser.t = Lexer.lex();
-    } 
-    
-    
-    
-    //...
-    
-    return new Proc(name, arg, Stmts.parse());
+
+      if (ParsingHelper.expected(IdentToken.class, true)) {
+          name = ((IdentToken) Parser.t).getAttr();
+          Parser.t = Lexer.lex();
+      }
+
+      if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.LParen, true)) {
+          Parser.t = Lexer.lex();
+      }
+
+      if (ParsingHelper.expected(IdentToken.class, true)) {
+          arg = ((IdentToken) Parser.t).getAttr();
+          Parser.t = Lexer.lex();
+      }
+
+      if (ParsingHelper.expected(ParenthesisToken.class, Symbol_t.RParen, true)) {
+          Parser.t = Lexer.lex();
+      }
+
+      return new Proc(name, arg, Stmts.parse());
   }
 
-  /*We don't seem to have any code to deal with the arguments*/
-  public void codegen() {
-    Output.writeToFile("/" + name + " {");
+    /*We don't seem to have any code to deal with the arguments*/
+    public void codegen() {
+        Output.writeToFile("/" + name + " {");
 
-    if (!arg.equals("VOID")) {
-      Output.writeToFile("/Arg exch def");
+        if (!arg.equals("VOID")) {
+            Output.writeToFile("/Arg exch def");
+        }
+        stmts.codegen();
+        Output.writeToFile("} def");
     }
-    stmts.codegen();
-      Output.writeToFile("} def");
-  }
 }

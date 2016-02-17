@@ -3,11 +3,7 @@ package stmts;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-
 import exceptions.ParsingException;
-import logoCompiler.lexer.Lexer;
-import logoCompiler.parser.Parser;
-import token.IdentToken;
 
 public class Stmts {
 
@@ -16,8 +12,7 @@ public class Stmts {
 	public Stmts() {
 		stmnts = new ArrayList<Stmt>();
 	}
- 	
-	
+
 	/*This returns a Stmts object which is used in Proc.java*/
 	
 	/*

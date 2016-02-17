@@ -1,7 +1,6 @@
 package stmts;
 
 import expr.Expr;
-import expr.IdentExpr;
 import helper.ParsingHelper;
 import logoCompiler.Output;
 import logoCompiler.lexer.Lexer;
@@ -51,7 +50,6 @@ public class FunctionCallStmt extends Stmt {
 
 	@Override
 	public void codegen() {
-		// TODO Auto-generated method stub
 		Output.writeToFile("Arg");
 		expr.codegen();
 		Output.writeToFile(name);

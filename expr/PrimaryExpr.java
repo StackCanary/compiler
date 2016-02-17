@@ -1,7 +1,5 @@
 package expr;
 import helper.ParsingHelper;
-import  logoCompiler.lexer.*;
-import logoCompiler.parser.Parser;
 import token.IdentToken;
 import token.NumberToken;
 /*
@@ -9,17 +7,24 @@ import token.NumberToken;
  *   num
  *   ident
  */
+
+/**
+ * This abstract class defines the basis and method of parsing a Primary type Expression
+ */
 public abstract class PrimaryExpr extends Expr {
-  public static Expr parse() {
-	  
-	  
-    if (ParsingHelper.expected(NumberToken.class, false)) {
-      return NumExpr.parse();
-    } else if (ParsingHelper.expected(IdentToken.class, true)) {
-      return IdentExpr.parse();
-    } else {
-      //error?
-    } 
+
+    /**
+     * This method is used to self parse the Expression
+     * @return The parsed Expression.
+     */
+    public static Expr parse() {
+        if (ParsingHelper.expected(NumberToken.class, false)) {
+            return NumExpr.parse();
+        } else if (ParsingHelper.expected(IdentToken.class, true)) {
+            return IdentExpr.parse();
+        } else {
+            //error?
+        }
     
     return null;
   }

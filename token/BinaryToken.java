@@ -25,7 +25,6 @@ public class BinaryToken extends OperatorToken{
 
 	@Override
 	public int precedence() {
-		// TODO Auto-generated method stub
 		switch (getAttr()) {
 		case "*":
 		case "/":

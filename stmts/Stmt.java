@@ -1,10 +1,7 @@
 package stmts;
 
 import exceptions.ParsingException;
-import expr.BinaryExpr;
-import expr.Expr;
 import helper.ParsingHelper;
-import logoCompiler.lexer.Lexer;
 import logoCompiler.parser.Parser;
 import token.IdentToken;
 import token.KeywordToken;

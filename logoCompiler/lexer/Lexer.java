@@ -1,15 +1,16 @@
 package logoCompiler.lexer;
-import java.util.*;
 
 import filereading.FileReader;
 import logoCompiler.parser.Parser;
-import token.ComparisonToken;
 import token.EOIToken;
 import token.Token;
 import token.TokenGenerator;
 import token.Tokenizer;
 
-
+/**
+ * This class reads through the input and converts the stream into suitable tokens
+ * for processing.
+ */
 public final class Lexer {
 	/* The scope of this variable means it is used in both 
 	 * lex() and getChar(), this was a subtle oversight 
@@ -19,7 +20,11 @@ public final class Lexer {
 	static int ch = getChar();
 	static int peek = getChar();
 	static TokenGenerator tGenerator = new TokenGenerator();
-	
+
+    /**
+     * This method is used to return the next token to be used.
+     * @return The Token once decided upon
+     */
 	public static Token lex() {
 		Token token = getToken();
 		if (token == null) {
@@ -29,7 +34,11 @@ public final class Lexer {
 		Parser.tokens.push(token);
 		return token;
 	}
-	
+
+    /**
+     * This is the method that decides which kind of token should be generated.
+     * @return The generated Token object.
+     */
 	public static Token getToken() {
 		TokenGenerator tGenerator = new TokenGenerator();
 		String currentString = "";
@@ -38,7 +47,7 @@ public final class Lexer {
 			getCharacter();
 		}
 		
-		/**
+		/*
 		 * Return end of input Token
 		 */
 		if (ch == -1) {
@@ -56,8 +65,8 @@ public final class Lexer {
 					return tGenerator.getNextToken();
 				}
 			}
-			getCharacter();
-			return currentToken;
+            getCharacter();
+            return currentToken;
 		}
 
 
@@ -77,14 +86,19 @@ public final class Lexer {
 		return null;
 
 	}
-	
 
 
-	//this reads chars from stdin. You can read in files any way you want, using FileReader etc.
+    /**
+     * this reads chars from stdin. You can read in files any way you want, using FileReader etc.
+     * @return the int of the next char.
+     */
 	static int getChar() {
 		return FileReader.getChar();
 	}
 
+    /**
+     * Provided there is a next character to get this method will update the variables 'ch' and 'peek'
+     */
 	static void getCharacter() {
 		if (peek == -1) {
 			ch = -1;

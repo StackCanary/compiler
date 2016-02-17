@@ -1,7 +1,5 @@
 package token;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,11 +13,11 @@ public class Tokenizer {
 		unidentified;
 		
 		private String regex;
-		
+
 		OperatorTokenAssist() {
-			
+
 		}
-		
+
 		OperatorTokenAssist(String s) {
 			regex = s;
 		}
@@ -28,9 +26,7 @@ public class Tokenizer {
 		public String getRegex() {
 			return regex;
 		}
-		
-		
-	};
+	}
 	
 	public static enum TokenAssist {
 		digit ("^[0-9]$"),	/* Literals */
@@ -44,21 +40,21 @@ public class Tokenizer {
 		private String regex;
 		
 		TokenAssist() {
-			
+
 		}
 		
 		TokenAssist(String s) {
 			regex = s;
 		}
-		
-		
+
+
 		public String getRegex() {
 			return regex;
 		}
-		
-		
-	};
-	
+
+
+	}
+
 	
 	public static boolean matchesRegex(String regex, String testString) {
 		if (regex == null) {

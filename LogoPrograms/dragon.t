@@ -1,13 +1,20 @@
-PROC LDRAGON (argument)
-	LEFT 90
-	FORWARD argument
-	RDRAGON (50)
+	PROC LDRAGON ( LEVEL )
+	    IF LEVEL == 0 THEN
+		FORWARD 5 
+	    ELSE
+		LDRAGON ( LEVEL - 1 )
+		LEFT 90
+		RDRAGON ( LEVEL - 1 )
+	    ENDIF 
+	    
+	PROC RDRAGON ( LEVEL )
+	    IF LEVEL == 0 THEN
+		FORWARD 5 
+	    ELSE
+		LDRAGON ( LEVEL - 1 ) 
+		RIGHT 90
+		RDRAGON ( LEVEL - 1 )
+	    ENDIF 
 
-PROC RDRAGON (argument)
-	LEFT 90
-	FORWARD argument
-	
-PROC MAIN(VOID)
-	LDRAGON(100)
-
-
+	PROC MAIN (VOID)
+	   LDRAGON ( 11 )

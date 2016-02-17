@@ -6,7 +6,20 @@ import logoCompiler.lexer.*;
 import logoCompiler.parser.*;
 import sun.security.pkcs.ParsingException;
 
+/**
+ * This is the main class which the compiler runs from.
+ * Containing all of the main loop of the program
+ */
 public class LogoPSCompiler {
+
+    /**
+     * This is the main method for the whole program
+     * @param args It is expected to have 2 arguments upon program execution
+     *             The first is the input file to be read from (in .t format)
+     *             The second is the name of the file to output to (in .PS format)
+     * @throws ParsingException
+     * @throws FileTypeException
+     */
 	public static void main(String[] args) throws ParsingException, FileTypeException {
 
 		//work out if the program is safe to initialise.
@@ -50,6 +63,9 @@ public class LogoPSCompiler {
 
 	}
 
+    /**
+     * This method prints out the preset PS code given as skeleton code.
+     */
 	public static void psPrologue() {
 		Output.writeToFile("%!PS-Adobe-3.0");	// Adobe header
 		/* rest of prologue ... */
@@ -89,6 +105,11 @@ public class LogoPSCompiler {
 		//System.out.println("[ OUR CODE SHOULD APPEAR BELOW HERE]");
 	}
 
+    /**
+     * This method prints out the final code in PS required to make the output
+     * as desired
+     * (Also passes a String to the 'printer' to tell it to close the output stream)
+     */
 	public static void psEpilogue() {
 		// This line is here for debugging purposes
 		//System.out.println("[OUR CODE SHOULD APPEAR ABOVE HERE]");  

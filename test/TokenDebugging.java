@@ -15,8 +15,6 @@ public class TokenDebugging {
 			token = Lexer.lex();
 			tokenList.add(token);
 		}
-		
-		
 	} 
 
 }
