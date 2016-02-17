@@ -11,11 +11,21 @@ import token.KeywordToken;
 /*
  * IF" expr "THEN" stmts "ELSE" stmts "ENDIF"
  */
+
+/**
+ * This class is used to represent a statement following an IF, THEN, ELSE format
+ */
 public class ConditionalStmt extends Stmt {
 	private Expr expr;
 	private Stmts thenStmts;
 	private Stmts elseStmts;
-	
+
+    /**
+     * Constructor method to create the contents of a conditional statement object
+     * @param expr The If Expression
+     * @param thenStmts What to do if true (Stmts)
+     * @param elseStmts What to do if false (Stmts)
+     */
 	public ConditionalStmt(Expr expr, Stmts thenStmts, Stmts elseStmts) {
 		this.expr = expr;
 		this.thenStmts = thenStmts;
@@ -26,6 +36,12 @@ public class ConditionalStmt extends Stmt {
 	 * This parse method returns a stmt like others, but this time we have different
 	 * private fields which are used in the codegen function
 	 */
+
+    /**
+     * Method to ensure that the ordering of the procedure is correct
+     * @return The statement if correctly syntaxed.
+     * @throws ParsingException
+     */
 	public static Stmt parse() throws ParsingException{
 		Expr expr = null;
 		Stmts thenStmts = null;
@@ -53,13 +69,13 @@ public class ConditionalStmt extends Stmt {
 			Parser.t = Lexer.lex();
 			return new ConditionalStmt(expr, thenStmts, elseStmts);
 		} 
-		
-		
-		
-		
+
 		return null;
 	}
-	
+
+    /**
+     * This method is used to ensure correct parsing and then the actual output to destination file.
+     */
 	@Override
 	public void codegen() {
 		expr.codegen();

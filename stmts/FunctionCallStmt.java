@@ -9,6 +9,9 @@ import token.IdentToken;
 import token.ParenthesisToken;
 import token.Token.Symbol_t;
 
+/**
+ * This class represents the Forward Statement type.
+ */
 public class FunctionCallStmt extends Stmt {
 	private String name;
 	private Expr expr;
@@ -16,7 +19,14 @@ public class FunctionCallStmt extends Stmt {
 	/*
 	 * ident '(' expr ')' 
 	 */
-	public FunctionCallStmt(String name, Expr expr) {
+
+    /**
+     * Constructor taking in the name of the function to call and an expression
+     * to create a statement
+     * @param name The name of a function that is to be called
+     * @param expr The expression to be used with that function
+     */
+    public FunctionCallStmt(String name, Expr expr) {
 		this.name = name;
 		this.expr = expr;
 	}
@@ -24,6 +34,11 @@ public class FunctionCallStmt extends Stmt {
 	/*
 	 * This function will return a FunctionCallStmt
 	 */
+
+    /**
+     * Method to allow the class to be able to parse itself and give proper output.
+     * @return The properly parsed statement.
+     */
 	public static Stmt parse() {
 		//Parser.t = Lexer.lex();
 		String name = null;
@@ -48,6 +63,9 @@ public class FunctionCallStmt extends Stmt {
 
 	}
 
+    /**
+     * Method to provide output to the destination file.
+     */
 	@Override
 	public void codegen() {
 		Output.writeToFile("Arg");

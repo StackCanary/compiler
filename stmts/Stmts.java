@@ -5,10 +5,16 @@ import java.util.List;
 import java.util.ListIterator;
 import exceptions.ParsingException;
 
+/**
+ * This class is used to store a list of the individual stmt objects.
+ */
 public class Stmts {
 
 	List<Stmt> stmnts;
-	
+
+    /**
+     * constructor to create an ArrayList of Stmt for this objects content
+     */
 	public Stmts() {
 		stmnts = new ArrayList<Stmt>();
 	}
@@ -18,6 +24,12 @@ public class Stmts {
 	/*
 	 * { stmnt }
 	 */
+
+    /**
+     * Allows the Stmts object to correctly parse itself.
+     * @return the parsed Stmts object
+     * @throws ParsingException
+     */
 	public static Stmts parse() throws ParsingException {
 //		Parser.t = Lexer.lex();
 		Stmts stmnts = new Stmts();
@@ -32,9 +44,11 @@ public class Stmts {
 		return stmnts;
 		
 	}
-	
-	/*This method returns the compiled code for all the statements*/
-	/*This method is called by Proc*/
+
+    /**
+     * 	This method returns the compiled code for all the statements
+	 *  This method is called by Proc
+     */
 	public void codegen() {
 		ListIterator<Stmt> li = stmnts.listIterator();
 	    while (li.hasNext()) {

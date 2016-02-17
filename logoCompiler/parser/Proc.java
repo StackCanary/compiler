@@ -15,7 +15,7 @@ import token.Token.Symbol_t;
  */
 
 /**
- *
+ * This is the class that defines the Procedure object - a key component in converting to the target language
  */
 public final class Proc {
   String name;
@@ -73,6 +73,10 @@ public final class Proc {
   }
 
     /*We don't seem to have any code to deal with the arguments*/
+
+    /**
+     * This method that parses this object and prints output to the destination file.
+     */
     public void codegen() {
         Output.writeToFile("/" + name + " {");
 
