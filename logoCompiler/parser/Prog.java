@@ -6,6 +6,7 @@ import token.PROCToken;
 import java.util.*;
 
 import exceptions.ParsingException;
+import helper.ParsingHelper;
 
 /*
  * Follows this syntax
@@ -39,7 +40,7 @@ public class Prog {
         /*Procs can parse themselves*/
         procs.add(Proc.parse());
 
-        while (Parser.t instanceof PROCToken) {
+        while (ParsingHelper.expected(PROCToken.class, true)) {
             procs.add(Proc.parse());
         }
 
