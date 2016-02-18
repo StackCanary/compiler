@@ -75,7 +75,7 @@ public class ConditionalStmt extends Stmt {
 	}
 
     /**
-     * This method is used to ensure correct parsing and then the actual output to destination file.
+     * This method generates the code for a conditional block
      */
 	@Override
 	public void codegen() {

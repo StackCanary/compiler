@@ -34,7 +34,7 @@ public final class LeftStmt extends Stmt {
 	}
 
     /**
-     * Method to provide output to the destination file.
+     * Generates the call to the Left function call
      */
 	@Override
 	public void codegen() {

@@ -8,8 +8,12 @@ import java.util.regex.Pattern;
  */
 public class Tokenizer {
 
+	/*
+	 * http://stackoverflow.com/questions/6667243/
+	 */
+	
     /**
-     * This holds the set of information about what each kind of operator can be within the tokens
+     * This stores the regular expressions for pattern matching operators
      */
 	public static enum OperatorTokenAssist {
 		binary_operator ("^(\\+|\\-|\\*|\\/)$"),
@@ -34,7 +38,7 @@ public class Tokenizer {
 	}
 
     /**
-     * This holds the set of information about what each kind of token can become from the input.
+     * This stores the regular expressions for pattern matching regular Tokens
      */
     public static enum TokenAssist {
 		digit ("^[0-9]$"),	/* Literals */
@@ -77,9 +81,9 @@ public class Tokenizer {
 	}
 
     /**
-     * This method is used to extract a Token type position using the input string for the comparison
+     * This method is used to extract a TokenAssist using the input string for the comparison
      * @param pToken The string to analyse
-     * @return the position of 'Token' in its collection.
+     * @return A TokenAssist
      */
 	public static TokenAssist getToken(String pToken) {
 		for (TokenAssist x : TokenAssist.values()) {
@@ -145,9 +149,9 @@ public class Tokenizer {
 	}
 
     /**
-     * This method is used to work out which kind of operator token should be created from the input string
-     * @param token Enum to help decide the type being analysed
-     * @param pToken The string to convert
+     * This method is used to work out which kind of operator token should be created from the input Token
+     * @param OperatorAssistToken Enum to help decide the type being analysed
+     * @param pToken The string to pass to the Token being created
      * @return The newly created Token
      */
 	public static Token createOperatorToken(OperatorTokenAssist token, String pToken) {

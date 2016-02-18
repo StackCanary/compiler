@@ -6,7 +6,7 @@ import java.util.ListIterator;
 import exceptions.ParsingException;
 
 /**
- * This class is used to store a list of the individual stmt objects.
+ * This class is used to store a list of the individual Stmt objects.
  */
 public class Stmts {
 

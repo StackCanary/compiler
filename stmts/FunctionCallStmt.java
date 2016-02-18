@@ -64,7 +64,7 @@ public class FunctionCallStmt extends Stmt {
 	}
 
     /**
-     * Method to provide output to the destination file.
+     * Geneartes the code for a function call
      */
 	@Override
 	public void codegen() {

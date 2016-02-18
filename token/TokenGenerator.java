@@ -1,14 +1,14 @@
 package token;
 
 /**
- * This class is used to hand out Tokens as they are created
+ * This class is used to generate a Token
  */
 public class TokenGenerator {
 	public Token tokenNext;
 
     /**
-     * This method is used to work out if there are more tokens still to come.
-     * @return boolean value based on - if there are more to come or not.
+     * This method is used determines if a Token has been generated
+     * @return boolean 
      */
 	public boolean hasNext() {
 		if (tokenNext != null) {
@@ -19,7 +19,7 @@ public class TokenGenerator {
 	}
 
     /**
-     * This method gives out the next token as it is requested
+     * This method gives out the next token as it is requests
      * @return Returns the actual token on request.
      */
 	public Token getNextToken() {
@@ -29,7 +29,7 @@ public class TokenGenerator {
 	}
 
     /**
-     * This method is used to find out if there is a further token to come and sets the class-local variable to it if true
+     * This method submits a test on a potential Token on which a Token is created if it exists
      * @param pToken Use this string to work out if further tokens are to come.
      */
 	public void submitTest(String pToken) {
@@ -37,7 +37,7 @@ public class TokenGenerator {
 	}
 
     /**
-     * This method is used to work out if there are further tokens to be created in the form of operators
+     * This method submits a test on a potential character Token on which a Token is created if it exists
      * @param pToken The string to use to work out if this is true or false.
      */
 	public void submitOperatorTest(String pToken) {

@@ -12,15 +12,15 @@ public class ForwardStmt extends Stmt {
 	private Expr expr;
 
     /**
-     * This Constructor is used to create the forward statement using the inputted expression
-     * @param expr The expression used to form the stmt.
+     * This Constructor is used to create the forward statement using the input expression
+     * @param expr The expression used to form the Stmt.
      */
 	public ForwardStmt(Expr expr) {
 		this.expr = expr;
 	}
 
     /**
-     * Method to allow the class to be able to parse itself and give proper output.
+     * Parses a Forward Stmt
      * @return The properly parsed statement.
      */
 	public static Stmt parse() {
@@ -31,7 +31,7 @@ public class ForwardStmt extends Stmt {
 	}
 
     /**
-     * Method to provide output to the destination file.
+     * Generates the call for a Forward function call
      */
 	@Override
 	public void codegen() {

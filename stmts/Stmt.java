@@ -33,7 +33,8 @@ public abstract class Stmt {
 	 */
 
     /**
-     * Method to allow the class to be able to parse itself and give proper output.
+     * Parses a Stmt and returns a Stmt object with the correct codegen function
+     * depending on what type of Stmt it is.
      * @return The properly parsed statement.
      * @throws ParsingException
      */
@@ -67,8 +68,6 @@ public abstract class Stmt {
 		} else {
 			return null;
 		}
-		
-		
 		
 		
 	}

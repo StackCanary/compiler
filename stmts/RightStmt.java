@@ -12,8 +12,8 @@ public class RightStmt extends Stmt{
 	private Expr expr;
 
     /**
-     * This Constructor is used to create the forward statement using the inputted expression
-     * @param expr The expression used to form the stmt.
+     * This Constructor is used to create the forward Stmt
+     * @param expr The expression used to form the Stmt.
      */
     public RightStmt(Expr expr) {
 		this.expr = expr;
@@ -31,7 +31,7 @@ public class RightStmt extends Stmt{
 	}
 
     /**
-     * Method to provide output to the destination file.
+     * Generates a call for a Right function call
      */
     @Override
 	public void codegen() {
