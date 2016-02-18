@@ -39,7 +39,7 @@ public final class Proc {
      * @throws ParsingException
      * @throws sun.security.pkcs.ParsingException
      */
-  public static Proc parse() throws ParsingException, sun.security.pkcs.ParsingException {
+  public static Proc parse() throws ParsingException{
       String name = "";
       String arg = "";
 

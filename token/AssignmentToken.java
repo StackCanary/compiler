@@ -3,8 +3,8 @@ package token;
 /**
  * Class to represent an assignment type token.
  */
-public class AsignmentToken extends Token{
-	public AsignmentToken(String attr) {
+public class AssignmentToken extends Token{
+	public AssignmentToken(String attr) {
 		super(attr);
 	}
 	

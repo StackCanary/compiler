@@ -1,10 +1,11 @@
 package logoCompiler.parser;
 
 import logoCompiler.lexer.*;
-import sun.security.pkcs.ParsingException;
 import token.EOIToken;
 import token.PROCToken;
 import java.util.*;
+
+import exceptions.ParsingException;
 
 /*
  * Follows this syntax

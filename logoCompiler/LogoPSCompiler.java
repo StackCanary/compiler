@@ -1,10 +1,10 @@
 package logoCompiler;
 
 import exceptions.FileTypeException;
+import exceptions.ParsingException;
 import filereading.FileReader;
 import logoCompiler.lexer.*;
 import logoCompiler.parser.*;
-import sun.security.pkcs.ParsingException;
 
 /**
  * This is the main class which the compiler runs from.

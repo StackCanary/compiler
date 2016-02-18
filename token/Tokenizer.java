@@ -160,7 +160,7 @@ public class Tokenizer {
 		case binary_operator:
 			return new BinaryToken(pToken);
 		case asignment_operator:
-			return new AsignmentToken(pToken);
+			return new AssignmentToken(pToken);
 		case comparison_operator:
 			return new ComparisonToken(pToken);
 		case paren:
