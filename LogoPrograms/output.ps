@@ -29,60 +29,108 @@ and { neg } if exch
 Ypos add /Ypos exch def
 Xpos add /Xpos exch def
 } def
-/LDRAGON {
+/LHILBERT {
 /Arg exch def
 Arg
 0
-eq
+ne
 {
-5
-Forward
-} {
-Arg
-Arg
-1
-sub
-LDRAGON
-/Arg exch def
 90
 Left
 Arg
 Arg
 1
 sub
-RDRAGON
+RHILBERT
 /Arg exch def
-} ifelse
-} def
-/RDRAGON {
-/Arg exch def
-Arg
-0
-eq
-{
-5
+4
 Forward
-} {
-Arg
-Arg
-1
-sub
-LDRAGON
-/Arg exch def
 90
 Right
 Arg
 Arg
 1
 sub
-RDRAGON
+LHILBERT
 /Arg exch def
+4
+Forward
+Arg
+Arg
+1
+sub
+LHILBERT
+/Arg exch def
+90
+Right
+4
+Forward
+Arg
+Arg
+1
+sub
+RHILBERT
+/Arg exch def
+90
+Left
+} {
+0
+Forward
+} ifelse
+} def
+/RHILBERT {
+/Arg exch def
+Arg
+0
+ne
+{
+90
+Right
+Arg
+Arg
+1
+sub
+LHILBERT
+/Arg exch def
+4
+Forward
+90
+Left
+Arg
+Arg
+1
+sub
+RHILBERT
+/Arg exch def
+4
+Forward
+Arg
+Arg
+1
+sub
+RHILBERT
+/Arg exch def
+90
+Left
+4
+Forward
+Arg
+Arg
+1
+sub
+LHILBERT
+/Arg exch def
+90
+Right
+} {
+0
+Forward
 } ifelse
 } def
 /MAIN {
 Arg
-11
-LDRAGON
+6
+LHILBERT
 /Arg exch def
 } def
 Xpos Ypos moveto
