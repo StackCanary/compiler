@@ -10,7 +10,8 @@ public class IdentExpr extends PrimaryExpr {
 
 	private String name;
 	/*
-	 * Over here we will use a Stack to revert the token to where it was before
+	 * I intended use a Stack to revert the token to where it was before, but
+	 * FraserHansen doesn't require backtracking
 	 */
 
     /**
@@ -31,7 +32,7 @@ public class IdentExpr extends PrimaryExpr {
 	}
 
     /**
-     * This method is used to push an 'Arg' to the stack as part of the order of code generation for PS.
+     * This code generated here is used to push the contents of the 'Arg' register onto to the stack.
      */
 	@Override
 	public void codegen() {

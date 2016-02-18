@@ -15,7 +15,7 @@ import token.Token.Symbol_t;
  */
 
 /**
- *
+ * This class defines a Proc which can parse itself
  */
 public final class Proc {
   String name;
@@ -28,12 +28,6 @@ public final class Proc {
     this.stmts = stmts;
   }
 
-	/**
-	 * This function reads the tokens to capture a PROC
-	 * @throws ParsingException
-	 * @throws sun.security.pkcs.ParsingException
-	 */
-  
   	/*
   	 * follows this syntax
   	 * "PROC" ident '(' ident ')' stmts ; 
@@ -73,6 +67,15 @@ public final class Proc {
   }
 
     /*We don't seem to have any code to deal with the arguments*/
+  	/**
+  	 * This codegen generates the code for a procedure.
+  	 * An important thing to note here is that since the 
+  	 * specification suggests using only one register,
+  	 * our generated code is caller save. The caller is
+  	 * responsible for saving and restoring its own register
+  	 * when making a function call. This was inspired by my 
+  	 * knowledge of x86 asm.
+  	 */
     public void codegen() {
         Output.writeToFile("/" + name + " {");
 

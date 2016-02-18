@@ -16,7 +16,7 @@ public class LogoPSCompiler {
      * This is the main method for the whole program
      * @param args It is expected to have 2 arguments upon program execution
      *             The first is the input file to be read from (in .t format)
-     *             The second is the name of the file to output to (in .PS format)
+     *             The second is the name of the file to output to (with .ps extension)
      * @throws ParsingException
      * @throws FileTypeException
      */

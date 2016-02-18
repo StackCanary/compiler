@@ -17,6 +17,11 @@ public class Prog {
 		this.procs = procs;
 	}
 	
+	/**
+	 * This function parses a program and returns a Prog object
+	 * @return A Prog object
+	 * @throws ParsingException
+	 */
   public static Prog parse() throws ParsingException {
 		/*An ArrayList of Proc objects*/
 	 List<Proc> procs = new ArrayList<Proc>();
@@ -35,6 +40,9 @@ public class Prog {
     return new Prog(procs);
   }
 
+  /**
+   * Generates the code for the entire program
+   */
   public void codegen() {
 	ListIterator<Proc> li = procs.listIterator();
     while (li.hasNext()) {

@@ -15,6 +15,9 @@ public final class Lexer {
 	/* The scope of this variable means it is used in both 
 	 * lex() and getChar(), this was a subtle oversight 
 	 * because in the original template. 
+	 * 
+	 * I changed the getChar/getCharacter function so it uses a local variable instead of the ch variable
+	 * with the global scope 
 	 */
 
 	static int ch = getChar();
@@ -23,6 +26,8 @@ public final class Lexer {
 
     /**
      * This method is used to return the next token to be used.
+     * This method deals with null tokens and pushes the tokens onto the stack
+     * just in case backtracking was needed.
      * @return The Token once decided upon
      */
 	public static Token lex() {
@@ -36,7 +41,7 @@ public final class Lexer {
 	}
 
     /**
-     * This is the method that decides which kind of token should be generated.
+     * This is method returns the next token to be used.
      * @return The generated Token object.
      */
 	public static Token getToken() {

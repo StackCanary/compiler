@@ -4,8 +4,8 @@ import java.util.Stack;
 import token.Token;
 
 /**
- * This is the main class that is used in parsing... obviously... It contains the stack of
- * tokens that the program uses in its conversion from Logo to PS.
+ * This class stores the global static variable that hold the current Token 
+ * and the state of the parser.
  */
 public final class Parser {
   public static Token t;

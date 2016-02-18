@@ -32,7 +32,7 @@ public final class BinaryExpr extends Expr {
     }
 
     /**
-     *This method is where the Logo code coverts itself and prints into PS directly
+     *This method is where the Logo code converts itself and prints into PS directly
      */
     @Override
     public void codegen() {

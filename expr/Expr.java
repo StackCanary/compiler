@@ -19,7 +19,9 @@ import operatortokens.OperatorToken;
 public abstract class Expr {
 
 		/*We need to differentiate between binary operations and primary expressions
-		 * this is automagically done the in fraserHanson function */
+		 * this is automagically done the in fraserHanson function 
+		 */
+	
 		/* 
 		 * primary-expr
 		 * binary-expr ; 
@@ -34,7 +36,7 @@ public abstract class Expr {
     }
 
     /**
-     * This is the method that decides the precedence for binary expressions.
+     * This method Parses expressions that involve precedence
      * @param k The input that helps to decide what the precedence value should match against.
      * @return The Expression output
      */
@@ -60,8 +62,7 @@ public abstract class Expr {
     }
 
     /**
-     * This is to tell the other classes that extend this class to include a method
-     * to generate their own code.
+     * Each expression implements its own codegen()
      */
     public abstract void codegen();
 }

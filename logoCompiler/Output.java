@@ -26,7 +26,7 @@ public class Output {
 
     /**
      * This method is used if there is content that is not to be put to the file
-     * (for exampe error messages that are to be displayed to the user but not exit the
+     * (for example error messages that are to be displayed to the user but not exit the
      * compiler as code for PS to try and read)
      * @param content The content to be placed in the console.
      */

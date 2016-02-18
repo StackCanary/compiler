@@ -9,10 +9,6 @@ import logoCompiler.parser.Parser;
 public class NumExpr extends PrimaryExpr{
 	private String name;
 	
-	/*
-	 * Over here we will use a Stack to revert the token to where it was before
-	 */
-
     /**
      * Constructor to create a NumExpr object
      * @param name The input string used to create the objects function.
@@ -22,7 +18,7 @@ public class NumExpr extends PrimaryExpr{
 	}
 
     /**
-     * This method is used to parse the object that contains it and return the corrected Expr
+     * This method parses number expressions and returns an Expr object
      * @return The corrected Expr.
      */
 	public static Expr parse() {
@@ -31,7 +27,7 @@ public class NumExpr extends PrimaryExpr{
 	}
 
     /**
-     * This method is used to write the primary expressions function to the output destination
+     * The number is simply pushed onto the stack
      */
 	@Override
 	public void codegen() {

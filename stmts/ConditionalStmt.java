@@ -26,6 +26,12 @@ public class ConditionalStmt extends Stmt {
 	 * This parse method returns a stmt like others, but this time we have different
 	 * private fields which are used in the codegen function
 	 */
+	
+	/**
+	 * Returns a Stmt object
+	 * @return
+	 * @throws ParsingException
+	 */
 	public static Stmt parse() throws ParsingException{
 		Expr expr = null;
 		Stmts thenStmts = null;
