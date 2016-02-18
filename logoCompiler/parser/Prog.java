@@ -40,7 +40,7 @@ public class Prog {
         /*Procs can parse themselves*/
         procs.add(Proc.parse());
 
-        while (ParsingHelper.expected(PROCToken.class, true)) {
+        while (ParsingHelper.expected(PROCToken.class, false)) {
             procs.add(Proc.parse());
         }
 
