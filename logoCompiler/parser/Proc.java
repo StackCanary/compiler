@@ -15,7 +15,7 @@ import token.Token.Symbol_t;
  */
 
 /**
- * This class defines a Proc which can parse itself
+ * This is the class that defines the Procedure object - a key component in converting to the target language
  */
 public final class Proc {
   String name;
@@ -67,6 +67,7 @@ public final class Proc {
   }
 
     /*We don't seem to have any code to deal with the arguments*/
+
   	/**
   	 * This codegen generates the code for a procedure.
   	 * An important thing to note here is that since the 
@@ -76,6 +77,7 @@ public final class Proc {
   	 * when making a function call. This was inspired by my 
   	 * knowledge of x86 asm.
   	 */
+
     public void codegen() {
         Output.writeToFile("/" + name + " {");
 
