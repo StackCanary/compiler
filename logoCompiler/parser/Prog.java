@@ -43,12 +43,13 @@ public class Prog {
         while (ParsingHelper.expected(PROCToken.class, false)) {
             procs.add(Proc.parse());
         }
-
-        if (Parser.t instanceof EOIToken) {
-            Parser.t = Lexer.lex();
+        
+        if (ParsingHelper.expected(EOIToken.class, true)) {
+        	
         } else {
-
+        	
         }
+        
         return new Prog(procs);
     }
 

@@ -13,70 +13,90 @@ public class ParsingHelper {
 	 * Passing types as a parameter
 	 */
 
-    /**
-     * This method is used to work out if the following token was expected or not
-     * @param expectedToken The token that is desired to be next
-     * @param throwError decide whether a Parsing Exception should be thrown manually or not.
-     * @return Boolean result of the order correctness
-     * @throws ParsingException
-     */
+	/**
+	 * This method is used to work out if the following token was expected or not
+	 * @param expectedToken The token that is desired to be next
+	 * @param throwError decide whether a Parsing Exception should be thrown manually or not.
+	 * @return Boolean result of the order correctness
+	 * @throws ParsingException
+	 */
 	public static boolean expected(Class<?> expectedToken, Boolean throwError) throws ParsingException {
-		if (Parser.t.getClass() == expectedToken) {
-			return true;
-		}
-		
-		
-		if (throwError) {
-			System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
-			Parser.error = true;
-			System.exit(1);
-		}
-		
-		return false;
-		
-	}
-
-    /**
-     * This method is used to work out if the following token was expected or not
-     * @param expectedToken The token that is desired to be next
-     * @param attr The attribute that is desired to be next
-     * @param throwError decide whether a Parsing Exception should be thrown manually or not.
-     * @return Boolean result of the order correctness
-     */
-	public static boolean expected(Class<?> expectedToken, String attr, Boolean throwError) throws ParsingException{
-		if (Parser.t.getClass() == expectedToken && Parser.t.getAttr().equals(attr)) {
-			return true;
-		} 
-
-		if (throwError) {
-			System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
-			Parser.error = true;
-			System.exit(1);
-		}
-		
-		return false;
-	}
-
-    /**
-     * This method is used to work out if the following token was expected or not
-     * @param expectedToken The token that is desired to be next
-     * @param symbol The symbol that is desired to be next
-     * @param throwError decide whether a Parsing Exception should be thrown manually or not.
-     * @return Boolean result of the order correctness
-     */
-	public static boolean expected(Class<?> expectedToken, Symbol_t symbol, Boolean throwError) throws ParsingException{
-		if (Parser.t.getClass() == expectedToken) {
-			if (Parser.t.getSymbol().equals(symbol)) {
+		try {
+			if (Parser.t.getClass() == expectedToken) {
 				return true;
 			}
-		} 
-		
-		
-		if (throwError) {
-			System.out.println("Expected " + expectedToken.toString() + " : " + symbol.toString() + " instead of " + Parser.t.getAttr() + " : " + Parser.t.getSymbol().toString());
-			Parser.error = true;
-			System.exit(1);
+
+
+			if (throwError) {
+				System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
+				Parser.error = true;
+				System.exit(1);
+			}
+		} catch(NullPointerException e) {
+			System.out.println("Unexpected Symbol");
+			return false;
 		}
+
+		return false;
+
+	}
+
+	/**
+	 * This method is used to work out if the following token was expected or not
+	 * @param expectedToken The token that is desired to be next
+	 * @param attr The attribute that is desired to be next
+	 * @param throwError decide whether a Parsing Exception should be thrown manually or not.
+	 * @return Boolean result of the order correctness
+	 */
+	public static boolean expected(Class<?> expectedToken, String attr, Boolean throwError) throws ParsingException{
+		try {
+
+			if (Parser.t.getClass() == expectedToken && Parser.t.getAttr().equals(attr)) {
+				return true;
+			} 
+
+			if (throwError) {
+				System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
+				Parser.error = true;
+				System.exit(1);
+			}
+
+		} catch(NullPointerException e) {
+			System.out.println("Unexpected Symbol");
+			return false;
+		}
+
+		return false;
+	}
+
+	/**
+	 * This method is used to work out if the following token was expected or not
+	 * @param expectedToken The token that is desired to be next
+	 * @param symbol The symbol that is desired to be next
+	 * @param throwError decide whether a Parsing Exception should be thrown manually or not.
+	 * @return Boolean result of the order correctness
+	 */
+	public static boolean expected(Class<?> expectedToken, Symbol_t symbol, Boolean throwError) throws ParsingException{
+		try {
+
+			if (Parser.t.getClass() == expectedToken) {
+				if (Parser.t.getSymbol().equals(symbol)) {
+					return true;
+				}
+			} 
+
+
+			if (throwError) {
+				System.out.println("Expected " + expectedToken.toString() + " : " + symbol.toString() + " instead of " + Parser.t.getAttr() + " : " + Parser.t.getSymbol().toString());
+				Parser.error = true;
+				System.exit(1);
+			}
+
+		} catch(NullPointerException e) {
+			System.out.println("Unexpected Symbol");
+			return false;
+		}
+
 		return false;
 	}
 }
