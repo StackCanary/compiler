@@ -25,6 +25,8 @@ public class ParsingHelper {
 			return true;
 		}
 		
+		Parser.error = true;
+		
 		if (throwError) {
 			throw new ParsingException("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
 		}
@@ -45,6 +47,8 @@ public class ParsingHelper {
 			return true;
 		} 
 
+		Parser.error = true;
+		
 		if (throwError) {
 			throw new ParsingException("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
 			
@@ -66,6 +70,8 @@ public class ParsingHelper {
 				return true;
 			}
 		} 
+		
+		Parser.error = true;
 		
 		if (throwError) {
 			throw new ParsingException("Expected " + expectedToken.toString() + " : " + symbol.toString() + " instead of " + Parser.t.getAttr() + " : " + Parser.t.getSymbol().toString());

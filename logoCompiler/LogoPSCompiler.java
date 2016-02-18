@@ -54,6 +54,8 @@ public class LogoPSCompiler {
 					psPrologue();
 					prog.codegen();
 					psEpilogue();
+				} else {
+					System.out.println("There was an error in the compilation. Code generation was halted");
 				}
 			}
 		}
