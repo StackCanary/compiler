@@ -64,7 +64,7 @@ public class FunctionCallStmt extends Stmt {
 	}
 
     /**
-     * Geneartes the code for a function call
+     * Generates the code for a function call
      */
 	@Override
 	public void codegen() {

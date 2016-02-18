@@ -8,4 +8,9 @@ public class ParsingException extends RuntimeException {
 		super("Parsing Error, Incorrect Token. " + message);
 	}
 	
+	
+	@Override
+	public void printStackTrace() {
+		
+	}
 }
