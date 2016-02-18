@@ -25,10 +25,11 @@ public class ParsingHelper {
 			return true;
 		}
 		
-		Parser.error = true;
 		
 		if (throwError) {
-			throw new ParsingException("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
+			System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
+			Parser.error = true;
+			System.exit(1);
 		}
 		
 		return false;
@@ -47,11 +48,10 @@ public class ParsingHelper {
 			return true;
 		} 
 
-		Parser.error = true;
-		
 		if (throwError) {
-			throw new ParsingException("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
-			
+			System.out.println("Expected " + expectedToken.toString() + " instead of " + Parser.t.getAttr());
+			Parser.error = true;
+			System.exit(1);
 		}
 		
 		return false;
@@ -71,10 +71,11 @@ public class ParsingHelper {
 			}
 		} 
 		
-		Parser.error = true;
 		
 		if (throwError) {
-			throw new ParsingException("Expected " + expectedToken.toString() + " : " + symbol.toString() + " instead of " + Parser.t.getAttr() + " : " + Parser.t.getSymbol().toString());
+			System.out.println("Expected " + expectedToken.toString() + " : " + symbol.toString() + " instead of " + Parser.t.getAttr() + " : " + Parser.t.getSymbol().toString());
+			Parser.error = true;
+			System.exit(1);
 		}
 		return false;
 	}

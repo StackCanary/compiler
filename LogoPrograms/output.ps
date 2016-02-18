@@ -29,60 +29,51 @@ and { neg } if exch
 Ypos add /Ypos exch def
 Xpos add /Xpos exch def
 } def
-/LDRAGON {
+/TRIANGLE {
 /Arg exch def
 Arg
-0
-eq
-{
 5
-Forward
-} {
-Arg
-Arg
-1
-sub
-LDRAGON
-/Arg exch def
-90
-Left
-Arg
-Arg
-1
-sub
-RDRAGON
-/Arg exch def
-} ifelse
-} def
-/RDRAGON {
-/Arg exch def
-Arg
-0
-eq
+gt
 {
-5
-Forward
-} {
 Arg
 Arg
-1
-sub
-LDRAGON
+2
+div
+TRIANGLE
 /Arg exch def
-90
+Arg
+Forward
+120
 Right
 Arg
 Arg
-1
-sub
-RDRAGON
+2
+div
+TRIANGLE
 /Arg exch def
+Arg
+Forward
+120
+Right
+Arg
+Arg
+2
+div
+TRIANGLE
+/Arg exch def
+Arg
+Forward
+120
+Right
+} {
+0
+Forward
 } ifelse
 } def
 /MAIN {
 Arg
-11
-LDRAGON
+250
+TRIANGLE
 /Arg exch def
 } def
 Xpos Ypos moveto
