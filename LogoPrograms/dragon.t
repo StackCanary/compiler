@@ -8,9 +8,6 @@
 		RDRAGON ( LEVEL - 1 )
 	    ENDIF
 
-hello world
-
-	    
 
 	PROC RDRAGON ( LEVEL )
 	    IF LEVEL == 0 THEN
